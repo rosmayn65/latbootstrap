@@ -3,6 +3,6 @@ session_start();
 if (isset($_SESSION['login'])) {
     unset($_SESSION);
     session_destroy();
-    header("location:loginppdb.php");
+    header("location:login.php");
 }
-?>
+
