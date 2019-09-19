@@ -13,7 +13,13 @@
 
 <body>
     <!--header-->
-    
+    <nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Rosmayani</span>
+    <form class="form-inline">
+    <form action="login_book.php" method="post">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+  </form>
+    </nav>
     <!--end header-->
 
     <!--content-->
@@ -27,7 +33,7 @@
                         <div class="card-header">Pembelian Buku</div>
                         <div class="card-body">
                         <!--isi disini-->
-                        <form action="" method="post">
+                        <form action="soal_pro.php" method="post">
                             <div class="form-group">
                                 <label for="">Nama</label>
                                 <input type="nama" name="nama" class="form-control">
@@ -38,7 +44,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Jenis Kelamin</label>
-                                <input type="radio" name="jk" value="lakilaki" checked>Laki-Laki</label>
+                                <input type="radio" name="jk" value="lakilaki">Laki-Laki</label>
                                 <input type="radio" name="jk" value="perempuan">Perempuan</label>
                             </div>
                             <div class="form-group">
@@ -47,22 +53,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Jumlah Buku</label>
-                                <input type="number" name="jb" class="form-control">
+                                <input type="number" name="jb" class="form-control" required>
+                                <br>
+                                <br>
                             </div>
                             <div class="form group">
                             <button type="hidden" name="proses" class="btn btn-outline-primary">Proses</button>
                             <button type="reset" name="reset" class="btn btn-outline-warning">Reset</button>
                             </div>
                         </form>
-                        <?php
-                            if (isset($_POST['proses'])) {
-                                $a = $_POST['nama'];
-                                $b = $_POST['alamat'];
-                                $c = $_POST['jk'];
-                                $d = $_POST['tp'];
-                                $e = $_POST['jb'];
-                            }
-                        ?>
                         <!--end disini-->
                     </div>
                 </div>
