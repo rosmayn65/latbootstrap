@@ -6,17 +6,16 @@ if (isset($_POST['Login'])) {
     //periksa login
     if ($a == "Rosmayani" && $b == "1234") {
         //menciptakan session
-        $_SESSION['login'] = $a;
+        $_SESSION['log'] = $a;
         //menuju ke halaman pemeriksaan session
-        echo "<h1>Anda berhasil LOGIN</h1>";
-        echo "<h2>Klik <a href='form1.php'>di sini</a>
-                untuk menuju ke halaman selanjutnya";
+        header('location:index.php');
     } else {
         die("username atau password anda salah 
         silahkan kembali login <a href=login.php> Login </a>");
     }
 } else {
     ?>
+
     <html>
 
     <head>

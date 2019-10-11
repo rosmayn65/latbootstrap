@@ -1,24 +1,32 @@
-<?php
 
+
+<?php
 session_start();
-    if (isset($_SESSION['log'])) {
-        # code...
+if (isset($_SESSION['log'])) {
+    # code...
+
+
+if (isset($_POST['simpan'])) {
+    $h_bersih = $_POST['hargabersih'];
+    $byr = $_POST['proses'];
+    $jmlh = $_POST['jml_uang'];
+    $kembali = $jmlh-$h_bersih;
+}
 
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Index</title>
+    <title>Kembalian</title>
     <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/bootstrap.min.css">
-
 </head>
-
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">Rosmayani</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,35 +37,46 @@ session_start();
             <ul class="navbar-nav mr-auto">
             </ul>
         <a class="nav-item">
-        <a class="nav-link" href="form1.php">Produk</a>
+        <a class="nav-link" href="/">About</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             </ul>
             <form class="form-inline my-2 my-lg-0" action="logout.php" method="POST">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
             </form>
-            </form>
+        </div>
         </div>
     </nav>
-    <br><br><br><br>
+    </header><br><br>
     <div class="container align-items-center">
-        <div class="jumbotron bg-white">
+        <div class="jumbotron bg-light">
             <div class="card">
                 <div class="card-body">
-                <div class="card-header"><center><h2>Selamat Datang Di Aprils.tore</h2></center></div>
-                <div class="card-footer"><center>Since 2019</center></div>
+                <div class="card-header"><center><h2>Data Berhasil Di Input!</h2></center></div>
+                Uang Anda : Rp. <?php echo $jmlh; ?><br>
+                Total Bayar : Rp. <?php echo $h_bersih; ?><br>
+                Kembalian Uang : Rp. <?php echo $kembali; ?><br>
+                Apakah Anda Ingin Memasukan Data Lagi ?
+                <div class="card-footer"><center>
+                <form action="" method="post">
+                    <div class="form-group">
+                        <input type="submit" value="Ya" name="y" class="btn btn-primary">
+                        <input type="submit" value="Tidak" name="t" class="btn btn-danger">
+                    </div>
+
+                    </form>
+                </center></div>
+                <?php 
+                    if (isset($_POST['y'])) {
+                        header("location:form1.php");
+                    } elseif (isset($_POST['t'])) {
+                        echo "Terima Kasih";
+                    }
+                ?>
             </div>
             </div>
         </div>
     </div>
-
-    <form action="hasil.php" method="post">
-
-    </div>
-
-    <script src="/assets/js/jquery.min.js"></script>
-    <script src="/assets/js/bootstrap.bundle.js"></script>
-    <script src="/assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 

@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+    if (isset($_SESSION['log'])) {
+        # code...
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +20,7 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <span class="navbar-brand mb-0 h1">Rosmayani</span>
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0" action="logout.php" method="POST">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
             </form>
     </nav>
@@ -22,7 +30,7 @@
                 <div class="card border-primary">
                     <div class="card-header">Invoice Pembayaran</div>
                     <div class="card-body">
-                    <form action="hasil.php" method="post">
+                    <form action="hslakhir.php" method="post">
                     <?php
                         if (isset($_POST['simpan'])) {
                             /* Data 1 */
@@ -88,13 +96,13 @@
                                 <?php
                                 }
                                 if (array_sum($total_hrg) > 500000) {
-                                    $disk = "20%";
+                                    $disk = "(20%)";
                                     $disc = 0.2;
                                 } elseif (array_sum($total_hrg) > 250000) {
-                                    $disk = "10%";
+                                    $disk = "(10%)";
                                     $disc = 0.1;
                                 }elseif (array_sum($total_hrg) > 150000) {
-                                    $disk = "5%";
+                                    $disk = "(5%)";
                                     $disc = 0.05;
                                 }
                                 $h_disc = array_sum($total_hrg)-(array_sum($total_hrg)*$disc);
@@ -107,26 +115,30 @@
                                     <td colspan="7" align="right">Rp. <?php echo number_format(array_sum($total_hrg), 0, ',', '.' ); ?></td>
                                 </tr>
                                 <tr>
-                                    <th>Diskon (<?php echo "$disk"; ?>)</th>
-                                    <td colspan="7" align="right">Rp. <?php echo number_format($diskon, 0, ',', '.') ?></td>
+                                    <th>Diskon</th>
+                                    <td><?php echo $disk; ?></td>
+                                    <td class="text-md-right" colspan="7">Rp. <?php echo number_format(array_sum($total_hrg)*$disc); ?></td>
                                 </tr>
                                 <tr>
                                     <th>Total Pembayaran</th>
-                                    <td colspan="7" align="right">Rp. <?php echo number_format($total, 0, ',', '.') ?></td>
-                                </tr>
+                                    <td class="text-md-right" colspan="7">Rp. <?php echo array_sum($total_hrg)-(array_sum($total_hrg)*$disc); ?></td>
+                                </tr><?php $h_bersih = array_sum($total_hrg)-(array_sum($total_hrg)*$disc); ?>
                                 <tr>
                                     <td colspan="7" align="center"><b>Pembayaran</b></td>
                                 </tr>
                             </table>
+                            <form action="hslakhir.php" method="POST">
                         <div class="form-group">
                         <label for="">Masukkan Jumlah Uang</label>
-                        <input type="number" class="form-control" name="jml_uang[]" required>
+                        <input type="number" class="form-control" name="jml_uang" required>
                         </div>
-                        <input type="hidden" name="jml" value="<?php echo $jmlh ?>">
+                        <input type="hidden" name="jml" value="<?php echo $jmlh; ?>">
+                        <input type="hidden" name="hargabersih" value="<?php echo $h_bersih; ?>">
                     </div>
                     <div class="form-group">
                         <button type="submit" name="simpan" class="btn btn-outline-primary">Bayar</button>
                     </div>
+                    </form>
                 </div>
            </div>
 
@@ -135,3 +147,8 @@
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+<?php } else {
+        header("location:login.php");
+    }
+    
+    ?>

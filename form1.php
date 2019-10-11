@@ -1,3 +1,12 @@
+
+<?php
+
+session_start();
+    if (isset($_SESSION['log'])) {
+        # code...
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,11 +31,11 @@
             <ul class="navbar-nav mr-auto">
             </ul>
         <a class="nav-item">
-        <a class="nav-link" href="form1.php">Services</a>
+        <a class="nav-link" href="form1.php">Produk</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <form class="form-inline my-2 my-lg-0" action="logout.php" method="POST">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
             </form>
         </div>
@@ -36,15 +45,15 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card border-primary">
-                    <div class="card-header">Masukkan Data Pembeli</div>
+                    <div class="card-header">Masukkan Data Diri Anda</div>
                     <div class="card-body">
                         <form action="form2.php" method="post">
                             <div class="form-group">
-                                <label for="">Nama</label>
+                                <label for="">Nama Lengkap</label>
                                 <input type="text" class="form-control" name="nama" required>
                             </div>
                             <div class="form-group">
-                                <label for="">Alamat</label>
+                                <label for="">Alamat Lengkap</label>
                                 <textarea class="form-control" name="alamat" required></textarea>
                             </div>
                             <div class="form-group">
@@ -58,7 +67,7 @@
                                 <input type="date" class="form-control" name="tanggal_beli" required>
                             </div>
                             <div class="form-group">
-                                <label for="">Jumlah</label>
+                                <label for="">Jumlah Pembelian</label>
                                 <input type="number" class="form-control" name="jumlah" required>
                             </div>
                             <div class="form-group">
@@ -77,3 +86,8 @@
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+<?php } else {
+        header("location:login.php");
+    }
+    
+    ?>
