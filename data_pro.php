@@ -30,7 +30,7 @@ session_start();
                 <div class="card border-primary">
                     <div class="card-header">Invoice Pembayaran</div>
                     <div class="card-body">
-                    <form action="hslakhir.php" method="post">
+                    <form action="proses.php" method="post">
                     <?php
                         if (isset($_POST['simpan'])) {
                             /* Data 1 */
@@ -127,7 +127,7 @@ session_start();
                                     <td colspan="7" align="center"><b>Pembayaran</b></td>
                                 </tr>
                             </table>
-                            <form action="hslakhir.php" method="POST">
+                            <form action="proses.php" method="POST">
                         <div class="form-group">
                         <label for="">Masukkan Jumlah Uang</label>
                         <input type="number" class="form-control" name="jml_uang" required>

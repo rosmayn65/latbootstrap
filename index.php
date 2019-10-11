@@ -29,7 +29,7 @@ session_start();
             <ul class="navbar-nav mr-auto">
             </ul>
         <a class="nav-item">
-        <a class="nav-link" href="form1.php">Produk</a>
+        <a class="nav-link" href="data_diri.php">Produk</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             </ul>
@@ -40,12 +40,12 @@ session_start();
         </div>
     </nav>
     <br><br><br><br>
-    <div class="container align-items-center">
-        <div class="jumbotron bg-white">
-            <div class="card">
-                <div class="card-body">
-                <div class="card-header"><center><h2>Selamat Datang Di Aprils.tore</h2></center></div>
-                <div class="card-footer"><center>Since 2019</center></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="padding:25px; margin:25px">
+                <div class="card">
+                <div class="card-header"><br><br><br>
+                <h1><center>Selamat Datang Di Aprils.tore</center></h1><br><br><br>
             </div>
             </div>
         </div>

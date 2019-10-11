@@ -45,7 +45,7 @@ session_start();
                 <div class="card border-primary">
                     <div class="card-header">Data Pembelian Barang</div>
                     <div class="card-body">
-                        <form action="form3.php" method="post">
+                        <form action="data_pro.php" method="post">
                             <?php
                             if (isset($_POST['simpan'])) {
                                 $jml = $_POST['jumlah'];
@@ -81,6 +81,7 @@ session_start();
                                         <label for="">Jumlah Barang</label>
                                         <input type="text" class="form-control" name="jmlbrg[]" required>
                                     </div>
+                                    <hr style="color : red;background-color: red;height: 5px;">
                                 <?php } ?>
                                 <input type="hidden" name="nama" value="<?php echo $nama; ?>">
                                 <input type="hidden" name="alamat" value="<?php echo $alamat; ?>">

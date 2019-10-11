@@ -31,7 +31,7 @@ session_start();
             <ul class="navbar-nav mr-auto">
             </ul>
         <a class="nav-item">
-        <a class="nav-link" href="form1.php">Produk</a>
+        <a class="nav-link" href="data_diri.php">Produk</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
             </ul>
@@ -47,7 +47,7 @@ session_start();
                 <div class="card border-primary">
                     <div class="card-header">Masukkan Data Diri Anda</div>
                     <div class="card-body">
-                        <form action="form2.php" method="post">
+                        <form action="data_brg.php" method="post">
                             <div class="form-group">
                                 <label for="">Nama Lengkap</label>
                                 <input type="text" class="form-control" name="nama" required>

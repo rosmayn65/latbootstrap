@@ -68,7 +68,7 @@ if (isset($_POST['simpan'])) {
                 </center></div>
                 <?php 
                     if (isset($_POST['y'])) {
-                        header("location:form1.php");
+                        header("location:data_diri.php");
                     } elseif (isset($_POST['t'])) {
                         echo "Terima Kasih";
                     }
